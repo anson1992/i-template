@@ -1,0 +1,13 @@
+
+html,body,#app {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-feature-settings: "cv03", "cv04", "cv11";
+    font-family: var(--self-font-family);
+    font-weight: 400;
+    font-variant:tabular-nums;
+    background-color: var(--self-body-bg);
+}

@@ -2,11 +2,17 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-04-10 20:59:30
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-12 16:37:24
+ * @LastEditTime: 2023-04-13 22:07:05
  * @FilePath: /i-template/CHANGELOG.md
  * @Description: 工程修订日志
 -->
 # CHANGELOG
+
+## 2023.04.13
+- 页面框架搭建
+- 也算是引入了svg公共组件
+- 引入平台的基础字体文件
+- 引入公共样式
 
 ## 2023.04.12
 - 引入持久化方案 pinia

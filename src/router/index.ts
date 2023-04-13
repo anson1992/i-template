@@ -2,20 +2,14 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-03-21 20:50:43
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-10 20:45:29
+ * @LastEditTime: 2023-04-13 16:44:31
  * @FilePath: /i-template/src/router/index.ts
  * @Description: 路由文件
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import IndexView from '../views/index/index.vue'
+import systemRoutes from './system-routes'
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'index',
-    component: IndexView
-  }
-]
+const routes: Array<RouteRecordRaw> = [...systemRoutes]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

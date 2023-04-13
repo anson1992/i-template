@@ -1,0 +1,11 @@
+:root {
+    --self-font-family: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    --self-body-color: #1d273b;
+    --self-primary-color: #206bc4;
+    --self-border-color: #e6e7e9;
+    --self-body-bg: #f1f5f9;
+}
+@font-face {
+    font-family: "Inter Var";
+    src: url("@/assets/fonts/Inter-roman.var.woff2") format("woff2");
+}
