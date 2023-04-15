@@ -2,7 +2,7 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-04-14 20:28:41
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-15 14:29:20
+ * @LastEditTime: 2023-04-15 14:41:12
  * @FilePath: /i-template/src/utils/request-api/index.ts
  * @Description: 基于axios的接口请求实现类
  */
@@ -101,15 +101,17 @@ class IAxios {
       if (ignorePendingRequest) {
         removePendingRequest(config)
         console.log('拦截请求')
+        addPendingRequest(config)
       }
-      addPendingRequest(config)
       return config
     }, undefined)
     // response拦截器
     this.instance.interceptors.response.use(
       (res: AxiosResponse<ResultParams>) => {
         const { data, config } = res
-        removePendingRequest(config)
+        if (ignorePendingRequest) {
+          removePendingRequest(config)
+        }
         switch (data.code) {
           case ResultEnum.SUCCESS:
             // 是否需要格式化接口出参
@@ -138,7 +140,9 @@ class IAxios {
         }
       },
       (err: AxiosError) => {
-        removePendingRequest(err.config || {})
+        if (ignorePendingRequest) {
+          removePendingRequest(err.config || {})
+        }
         if (Axios.isCancel(err)) {
           console.log('已取消的重复请求：' + err.message)
         }
