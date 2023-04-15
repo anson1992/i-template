@@ -2,7 +2,7 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-04-13 15:10:06
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-13 22:06:35
+ * @LastEditTime: 2023-04-13 22:08:48
  * @FilePath: /i-template/src/components/header/index.vue
  * @Description: header
 -->
@@ -75,49 +75,5 @@ import {
 } from '@element-plus/icons-vue'
 </script>
 <style lang="scss" scoped>
-.header {
-  @apply flex align-middle flex-wrap justify-center items-center;
-  align-items: center;
-  border-bottom: 1px solid var(--self-border-color);
-  box-shadow: inset 0 calc(1) 0 0 var(--self-border-color);
-  color: var(--self-body-color);
-  padding: 0 12px;
-  box-sizing: border-box;
-  background-color: #fff;
-  .logo {
-    display: flex;
-    @apply items-center;
-    img {
-      height: 32px;
-      border-radius: 6px;
-    }
-    .title {
-      @apply font-medium;
-      font-size: 1rem;
-      margin-left: 8px;
-    }
-  }
-  .nav {
-    @apply flex  flex-1 justify-end;
-    .nav-item {
-      @apply flex justify-end items-center;
-      margin-right: 12px;
-    }
-    .dropdown-item {
-      &.dropdown-link {
-        --user-icon-width: 32px;
-        width: var(--user-icon-width);
-        height: var(--user-icon-width);
-        img {
-          width: var(--user-icon-width);
-          height: var(--user-icon-width);
-          border-radius: 4px;
-        }
-      }
-    }
-  }
-}
-.dropdown-title {
-  min-width: 110px;
-}
+@import './index.scss';
 </style>

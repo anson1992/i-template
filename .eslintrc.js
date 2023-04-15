@@ -2,7 +2,7 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-03-21 20:50:43
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-13 19:42:41
+ * @LastEditTime: 2023-04-14 21:36:28
  * @FilePath: /i-template/.eslintrc.js
  * @Description: eslint语法配置
  */
@@ -41,6 +41,8 @@ module.exports = {
     // 'prettier/prettier': 0,
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-this-alias': 'off',
-    'no-undef': 0
+    'no-undef': 0,
+    'prefer-rest-params': 'off',
+    ' no-case-declarations': 0
   }
 }

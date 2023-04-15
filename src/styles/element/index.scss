@@ -4,3 +4,7 @@
 .el-button, .el-dropdown-menu__item {
   @apply text-xs font-normal #{!important};
 }
+button, [type='button'], [type='reset'], [type='submit'] {
+  background-color: inherit !important;
+  background-image: inherit !important;
+}
