@@ -2,13 +2,18 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-03-21 20:50:43
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-13 19:12:59
+ * @LastEditTime: 2023-04-18 15:23:16
  * @FilePath: /i-template/vue.config.js
  * @Description: 工程配置
  */
 const { defineConfig } = require('@vue/cli-service')
 const { resolve } = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
+const WebpackBundleanAlyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin // 分析build的工具
+const WebpackBar = require('webpackbar')
 const IS_DEV = ['development'].includes(process.env.NODE_ENV)
+const IS_ANALYZER = process.env.use_analyzer
+const IS_PROD = ['production'].includes(process.env.VUE_APP_GLOBAL_ENV)
 module.exports = defineConfig({
   transpileDependencies: true,
   chainWebpack: config => {
@@ -37,18 +42,70 @@ module.exports = defineConfig({
     })
     // 忽略解析markdown文件
     config.module.noParse(/\.md$/)
-    config.module.rule('svg').exclude.add(resolve('src/assets/svg/icons')).end()
-
-    config.module
-      .rule('icons')
-      .test(/\.svg$/)
-      .include.add(resolve('src/assets/svg/icons'))
-      .end()
-      .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
-      .options({
-        symbolId: 'svg-icon-[name]'
+    // 打包GZIP压缩
+    config.plugin('CompressionPlugin').use('compression-webpack-plugin', [
+      {
+        filename: '[path][base].gz',
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240, // 只处理比这个值大的资源。按字节计算
+        minRatio: 0.8 // 只有压缩率比这个值小的资源才会被处理
+      }
+    ])
+    // 合并文件
+    config.optimization.splitChunks({
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(s?css|less|sass)$/,
+          chunks: 'all',
+          priority: 10
+        },
+        common: {
+          name: 'chunk-common',
+          chunks: 'all',
+          minChunks: 2, // 拆分前必须共享模块的最小 chunks 数。
+          maxInitialRequests: 5, // 打包后的入口文件加载时，还能同时加载js文件的数量（包括入口文件）
+          minSize: 0, // 生成 chunk 的最小体积
+          priority: 1, // 优化将优先考虑具有更高 priority（优先级）的缓存组
+          reuseExistingChunk: true // 如果当前 chunk 包含已从主 bundle 中拆分出的模块，则它将被重用，而不是生成新的模块
+        },
+        vendors: {
+          name: 'chunk-vendors',
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 2,
+          reuseExistingChunk: true
+        }
+      }
+    })
+  },
+  configureWebpack: config => {
+    if (IS_PROD) {
+      // 打包剔除日志 console.log
+      const TerserPluginIndex = config.optimization.minimizer.findIndex(n => n.__pluginName === 'terser')
+      config.optimization.minimizer[TerserPluginIndex] = new TerserPlugin({
+        terserOptions: {
+          warnings: false,
+          format: {
+            comments: false
+          },
+          compress: {
+            drop_debugger: true, // 注释console
+            drop_console: true,
+            pure_funcs: ['console.log'] // 移除console
+          }
+        },
+        extractComments: false, // 是否将注释提取到一个单独的文件中
+        parallel: true // 是否并⾏打包
       })
+    }
+    if (IS_ANALYZER) {
+      // 打包分析
+      config.plugins.push(new WebpackBundleanAlyzer({ analyzerPort: 9601 }))
+    }
+    // 打包进度
+    config.plugins.push(new WebpackBar({ name: 'PC', color: '#07c160' }))
   },
   css: {
     sourceMap: false,

@@ -8,11 +8,7 @@
 -->
 <template>
   <keep-alive>
-    <el-config-provider
-      :button="globalConfig.button"
-      :message="globalConfig.message"
-      :locale="globalConfig.locale"
-    >
+    <el-config-provider :button="globalConfig.button" :message="globalConfig.message" :locale="globalConfig.locale">
       <router-view></router-view>
     </el-config-provider>
   </keep-alive>

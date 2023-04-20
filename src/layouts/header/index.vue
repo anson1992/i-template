@@ -64,15 +64,7 @@
   </el-header>
 </template>
 <script lang="ts" setup name="Header">
-import {
-  Setting,
-  Warning,
-  Close,
-  Connection,
-  Moon,
-  DataAnalysis,
-  Orange
-} from '@element-plus/icons-vue'
+import { Setting, Warning, Close, Connection, Moon, DataAnalysis, Orange } from '@element-plus/icons-vue'
 </script>
 <style lang="scss" scoped>
 @import './index.scss';

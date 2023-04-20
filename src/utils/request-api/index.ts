@@ -2,17 +2,11 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-04-14 20:28:41
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-15 14:41:12
+ * @LastEditTime: 2023-04-17 22:20:16
  * @FilePath: /i-template/src/utils/request-api/index.ts
  * @Description: 基于axios的接口请求实现类
  */
-import Axios, {
-  AxiosInstance,
-  AxiosResponse,
-  AxiosRequestConfig,
-  InternalAxiosRequestConfig,
-  AxiosError
-} from 'axios'
+import Axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig, InternalAxiosRequestConfig, AxiosError } from 'axios'
 import Qs from 'qs'
 import { RequestOptions, ResultParams } from './types'
 import { ContentTypeEnum, ResultEnum } from './http-enum'
@@ -64,29 +58,13 @@ class IAxios {
   constructor(options: RequestOptions) {
     this.options = options
   }
-  request<T = any>(
-    configs: AxiosRequestConfig,
-    options?: RequestOptions
-  ): Promise<AxiosResponse<T>> {
+  request<T = any>(configs: AxiosRequestConfig, options?: RequestOptions): Promise<AxiosResponse<T>> {
     this.instance = Axios.create()
     const _conf: AxiosRequestConfig = JSON.parse(JSON.stringify(configs))
     const _opts: RequestOptions = Object.assign({}, this.options, options)
     // 格式化接口地址，兼容第三方接口
-    _conf.url =
-      _conf?.url?.startsWith('http://') || _conf?.url?.startsWith('https://')
-        ? _conf?.url
-        : `${location.origin}/${_conf?.url}`
-    const {
-      contentType,
-      isShowErrorMessage,
-      errorMessageText,
-      isTransformRequestResult,
-      isShowServerErrorMessage,
-      isTimeout,
-      timeoutNumber,
-      ignoreToken,
-      ignorePendingRequest
-    } = _opts
+    _conf.url = _conf?.url?.startsWith('http://') || _conf?.url?.startsWith('https://') ? _conf?.url : `${location.origin}/${_conf?.url}`
+    const { contentType, isShowErrorMessage, errorMessageText, isTransformRequestResult, isShowServerErrorMessage, isTimeout, timeoutNumber, ignoreToken, ignorePendingRequest } = _opts
     if (contentType) {
       this.instance.defaults.headers.post['Content-Type'] = contentType
     }

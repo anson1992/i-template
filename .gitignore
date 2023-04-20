@@ -2,6 +2,7 @@
 node_modules
 /dist
 /.history
+serves.js
 
 
 # local env files

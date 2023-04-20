@@ -2,11 +2,14 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-04-10 20:59:30
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-15 14:49:20
+ * @LastEditTime: 2023-04-17 21:41:27
  * @FilePath: /i-template/CHANGELOG.md
  * @Description: 工程修订日志
 -->
 # CHANGELOG
+
+## 2023.04.17
+- 全局环境变量
 
 ## 2023.04.15
 - 封装了Axios请求，重点解决重复请求的拦截
