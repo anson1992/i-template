@@ -2,12 +2,11 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-03-21 20:50:43
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-18 15:23:16
+ * @LastEditTime: 2023-04-20 11:11:16
  * @FilePath: /i-template/vue.config.js
  * @Description: 工程配置
  */
 const { defineConfig } = require('@vue/cli-service')
-const { resolve } = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
 const WebpackBundleanAlyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin // 分析build的工具
 const WebpackBar = require('webpackbar')

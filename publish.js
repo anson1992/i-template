@@ -113,18 +113,22 @@ const delDic = () => {
  */
 const publishApp = () => {
   // 执行上传
-  client.scp('/Users/roman/Documents/projects/vue/i-template/dist', {
-    host: server.serverConfig().host,
-    port: server.serverConfig().port,
-    username: server.serverConfig().username,
-    password: server.serverConfig().password,
-    path: `${server.serverConfig().path}${name}/`
-  }, err => {
-    spinner.stop()
-    if (err) {
-      console.log(chalk.red(`Error! \n工程发布失败！\n info: ${err}`))
-    } else {
-      console.log(chalk.green(`Success! \n工程已经成功发布至${process.env.VUE_APP_GLOBAL_ENV === 'development-fix' ? '测试' : '生产'}服务器路径：${server.serverConfig().path}${name}\n`))
+  client.scp(
+    '/Users/roman/Documents/projects/vue/i-template/dist',
+    {
+      host: server.serverConfig().host,
+      port: server.serverConfig().port,
+      username: server.serverConfig().username,
+      password: server.serverConfig().password,
+      path: `${server.serverConfig().path}${name}/`
+    },
+    err => {
+      spinner.stop()
+      if (err) {
+        console.log(chalk.red(`Error! \n工程发布失败！\n info: ${err}`))
+      } else {
+        console.log(chalk.green(`Success! \n工程已经成功发布至${process.env.VUE_APP_GLOBAL_ENV === 'development-fix' ? '测试' : '生产'}服务器路径：${server.serverConfig().path}${name}\n`))
+      }
     }
-  })
+  )
 }
