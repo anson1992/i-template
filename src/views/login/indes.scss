@@ -1,0 +1,38 @@
+.login-index{
+    @include full-screen-vw;
+    display: flex;
+    justify-content:center;
+    .top-logo {
+        font-size: 20px;
+        font-weight: 600;
+        position: absolute;
+        top: 32px;
+        left: 40px;
+        @include responsive($s-width) {
+          top: 16px;
+          left: 24px;
+        }
+      }
+    .el-row {
+       flex: 0 0 80%;
+    }
+    background-color: #fff;
+    .right-login-form{
+       display: flex;
+       align-items: center;
+       justify-content: flex-end;
+       margin: 0 auto;
+       @include responsive($n-width) {
+        flex-direction: column;
+        justify-content: center;
+      }
+      @include responsive($m-width) {
+        flex-direction: column;
+        justify-content: center;
+      }
+      @include responsive($s-width) {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+}

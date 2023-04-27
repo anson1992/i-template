@@ -1,7 +1,13 @@
-.el-dropdown-menu__item {
-  padding: 6px 12px !important;
-}
-button, [type='button'], [type='reset'], [type='submit'] {
-  background-color: inherit !important;
-  background-image: inherit !important;
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #4D47C3,
+    ),
+  ),
+);
+
+@use "element-plus/theme-chalk/src/index.scss" as *;
+
+:root {
+  --el-component-size-large: 52px !important;
 }

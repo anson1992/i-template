@@ -2,7 +2,7 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-03-21 20:50:43
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-13 20:06:52
+ * @LastEditTime: 2023-04-24 15:29:25
  * @FilePath: /i-template/src/App.vue
  * @Description: 主体框架
 -->
@@ -26,6 +26,5 @@ const globalConfig = {
 }
 </script>
 <style lang="scss">
-@import './src/styles/common/global.scss';
-@import './src/styles/element/index.scss';
+@import './styles/common/global.scss';
 </style>

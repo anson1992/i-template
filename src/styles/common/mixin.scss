@@ -1,0 +1,70 @@
+@mixin full-screen-vw {
+    width: 100vw;
+    height: 100vh;
+}
+@mixin full-screen-px {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin flex-center {
+    justify-content: center;
+    align-items: center;
+}
+@mixin margin-0 {
+    margin: 0;
+}
+@mixin padding-0 {
+    margin: 0;
+}
+
+// 修改 输入框的提示语颜色
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+      @content
+    }
+    &::-moz-placeholder {
+      @content
+    }
+    &:-ms-input-placeholder {
+      @content
+    }
+    &:placeholder {
+      @content
+    }
+}
+// 媒体查询：响应式
+// 屏幕分界点
+  $s-width: 768px;
+  $m-width: 1024px;
+  $n-width: 1440px;
+  $l-width: 1920px;
+
+@mixin responsive($screen) {
+  @if $screen == $l-width {
+    @media only screen and (min-width: $l-width) {
+      @content;
+    }
+  }
+  @else if $screen == $n-width {
+    @media only screen and (min-width: $n-width) and (max-width: $l-width) {
+      @content;
+    }
+  }
+  @else if $screen == $m-width {
+    @media only screen and (min-width: $m-width) and (max-width: $n-width) {
+      @content;
+    }
+  }
+  @else if $screen == $s-width {
+    @media only screen and (min-width: $s-width) and (max-width: $m-width) {
+      @content;
+    }
+    @media only screen and (max-width: $s-width) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
