@@ -1209,6 +1209,11 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/bigi@*":
+  version "1.4.3"
+  resolved "https://registry.npmmirror.com/@types/bigi/-/bigi-1.4.3.tgz#dd8b1e544e7f33b8ee41f708c9c8e9de34554c96"
+  integrity sha512-oP82FmXt9/WksX+kyBJvMV/JjYb0EsGBUns+Ogw3SjCifBDudxHFwtBt01ZD7m6bGHHzgIKkOU/lRZEhwBTsKw==
+
 "@types/body-parser@*":
   version "1.19.2"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.2.tgz#aea2059e28b7658639081347ac4fab3de166e6f0"
@@ -1382,6 +1387,13 @@
   dependencies:
     "@types/mime" "*"
     "@types/node" "*"
+
+"@types/sm-crypto@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmmirror.com/@types/sm-crypto/-/sm-crypto-0.3.0.tgz#061c205770bfcb520c365c0459ff20267b94fdf6"
+  integrity sha512-fXjWSOfDFYz5WUWEmE/qwqcRZewgU5IBkSjpkFDSoqbbfAfFkSJvJlGxJgouVbYkFoJ34Db+uclw/PpXU+puCA==
+  dependencies:
+    "@types/bigi" "*"
 
 "@types/sockjs@^0.3.33":
   version "0.3.33"
@@ -4763,6 +4775,11 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
+jsbn@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmmirror.com/jsbn/-/jsbn-1.1.0.tgz#b01307cb29b618a1ed26ec79e911f803c4da0040"
+  integrity sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==
+
 jsesc@^2.5.1:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-2.5.2.tgz#80564d2e483dacf6e8ef209650a67df3f0c283a4"
@@ -6439,6 +6456,13 @@ slice-ansi@^4.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
+
+sm-crypto@^0.3.12:
+  version "0.3.12"
+  resolved "https://registry.npmmirror.com/sm-crypto/-/sm-crypto-0.3.12.tgz#c23ec52b5f8a23b2fc4e7467f5738a90cee7b0d2"
+  integrity sha512-272PBzB4PYaBdeGa41TH9ZlMGLPVRmS36Gs4FjmHwXIdihQypAbhhFWZTaa/3de69q2KfMme1M5O2W5+spAdrg==
+  dependencies:
+    jsbn "^1.1.0"
 
 sockjs@^0.3.24:
   version "0.3.24"

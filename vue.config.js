@@ -2,7 +2,7 @@
  * @Author: changjun anson1992@163.com
  * @Date: 2023-03-21 20:50:43
  * @LastEditors: changjun anson1992@163.com
- * @LastEditTime: 2023-04-26 16:55:18
+ * @LastEditTime: 2023-04-27 14:23:37
  * @FilePath: /i-template/vue.config.js
  * @Description: 工程配置
  */
@@ -117,6 +117,19 @@ module.exports = defineConfig({
         @import "./src/styles/common/variables.scss";
         @import "./src/styles/common/mixin.scss";
         `
+      }
+    }
+  },
+  devServer: {
+    host: 'localhost',
+    port: 8081,
+    proxy: {
+      '/serverApi': {
+        target: 'https://t-meta-marketing-server.jsszkd.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/serverApi': '/'
+        }
       }
     }
   }
