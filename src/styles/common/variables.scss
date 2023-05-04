@@ -4,9 +4,14 @@
     --self-body-color: #1d273b;
     --self-primary-color: #4D47C3;
     --self-border-color: #e6e7e9;
-    --self-body-bg: #f1f5f9;
+    --self-body-bg: #1E1E1E;
 }
 @font-face {
     font-family: "Inter Var";
     src: url("@/assets/fonts/Inter-roman.var.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "YouSheBiaoTiHei";
+    src: url("@/assets/fonts/优设标题黑.TTF");
 }
